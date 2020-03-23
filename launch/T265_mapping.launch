@@ -1,0 +1,35 @@
+<launch>
+    <arg name="offline"          default="false"/>
+    <arg name="camera/tracking_module/enable_mapping"  default="false"/>
+    <include unless="$(arg offline)"
+        file="$(find realsense2_camera)/launch/rs_t265.launch">
+    <!-- <include unless="$(arg offline)"
+        file="$(find realsense2_camera)/launch/rs_camera.launch"> -->
+        <!-- <arg name="align_depth" value="true"/> -->
+        <arg name="linear_accel_cov" value="1.0"/>
+        <arg name="unite_imu_method" value="linear_interpolation"/>
+    </include>
+
+    <!-- <node pkg="imu_filter_madgwick" type="imu_filter_node" name="ImuFilter">
+        <param name="use_mag" type="bool" value="false" />
+        <param name="_publish_tf" type="bool" value="true" />
+        <param name="_world_frame" type="string" value="enu" />
+        <remap from="/imu/data_raw" to="/camera/imu"/>
+    </node> -->
+
+    <!-- <include file="$(find rtabmap_ros)/launch/stereo_mapping.launch"> -->
+
+    <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
+        <arg name="stereo"                  default="true"/>
+        <arg name="odom_topic"              value="camera/odom/sample"/>
+        <arg name="odom_frame_id"           default="camera_odom_frame"/>
+        <arg name="left_image_topic"        default="/camera/fisheye1/image_raw" />
+        <arg name="right_image_topic"       default="/camera/fisheye2/image_raw" />
+        <arg name="left_camera_info_topic"  default="/camera/fisheye1/camera_info_calib" />
+        <arg name="right_camera_info_topic" default="/camera/fisheye2/camera_info_calib" />
+        <arg name="visual_odometry"         value="false"/>
+
+        <arg name="rviz" value="true"/>
+    </include>
+
+</launch>

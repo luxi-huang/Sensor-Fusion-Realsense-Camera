@@ -1,0 +1,11 @@
+<launch>
+  <include file="$(find realsense2_camera)/launch/rs_t265.launch" />
+  <node pkg="my_realsense" type="points_and_lines" name="points_and_lines"  output="screen">
+  </node>
+
+
+
+
+
+
+</launch>

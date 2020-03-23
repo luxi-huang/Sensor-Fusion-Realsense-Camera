@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find realsense2_camera)/launch/rs_t265.launch" />
+  <node pkg="my_realsense" type="gyro" name="gyro"  output="screen">
+  </node>
+
+</launch>
