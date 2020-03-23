@@ -1,5 +1,4 @@
 # Sensor-Fusion-Realsense-Camera
-<<<<<<< HEAD
 
 This project build mapping function on Intel realsense traking camera T265 and depth camera D435i individually, then compare their mapping qualities. To achieve the mapping function on the depth camera, the depth information from its two RGBD eyes could be fused with IMU data by applying EKF filter. On the tracking camera, two fisheys could perform as stereo camera to measures the depth, then combine with its depth properties to achieve its functionalities.
 
@@ -37,7 +36,5 @@ For more information, please see at my [portfolio](https://luxi-huang.github.io/
 
 
 ## Future work:
+
 Test two camera on the real robot, try the task like grab project or avoid obstables, and compare which camera performance is better.
-=======
-Will update soon 
->>>>>>> a68fff48d136429b3891f666dbf586881a631fc0
