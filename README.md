@@ -22,7 +22,7 @@ loop closure for tracking camera T265 camera
 
 ## Mapping approach:
 
-#### Depth camera D4351:
+### Depth camera D4351:
 The Depth camera sensor fusion process as shown on figure 2:
 
 1. Applied IMU to Madwick Filter library to fused IMU data
@@ -35,7 +35,7 @@ see file  D435i_mapping.launch
 
 ![Hierarchy](https://github.com/luxi-huang/portfolio/blob/master/img/posts/sensor_fusion/Sensor_fusion_D435i.png?raw=true)*<center>Figure 2: Senosr fuse for Depth Camera D435i</center>*
 
-### tracking camera T265:
+### Tracking camera T265:
 1. In order to get the depth graph, we need to treat two fisheyes as stereo camera. Re-calibrate two camera from Rtabmap.
 2. Build node to publish new topics for two fisheyes information base on the calibration on step 1.
 3. Applied calibrated "stereo camera" to RTabMap_ros library to get cloud point data.
@@ -60,8 +60,8 @@ $ python T265_stero.py
 
 3. Get Loop closure from T265 Map:
 ```
-$roscore
-$roscd scripts
+$ roscore
+$ roscd scripts
 $ python camera_info_pub.py    _url:=/home/luxi/winter_2020/v_slam/ws/src/my_realsense/config/left.yaml    image:=/camera/fisheye1/image_raw    camera_info:=/camera/fisheye1/camera_info_calib
 $ python camera_info_pub.py    _url:=/home/luxi/winter_2020/v_slam/ws/src/my_realsense/config/right.yaml    image:=/camera/fisheye2/image_raw    camera_info:=/camera/fisheye2/camera_info_calib
 $ roslaunch T265_mapping.launch
